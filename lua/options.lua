@@ -49,8 +49,8 @@ vim.opt.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+--vim.opt.list = true
+--vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = 'split'
@@ -78,5 +78,7 @@ vim.opt.expandtab = false -- Don't convert tabs to spaces
 vim.opt.shiftround = true -- Round indent to multiple of shiftwidth
 
 vim.opt.termguicolors = true
+
+vim.opt.cmdheight = 0
 
 -- vim: ts=2 sts=2 sw=2 et

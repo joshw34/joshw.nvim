@@ -75,4 +75,11 @@ vim.keymap.set('n', '<C-Left>', '<Cmd>vertical resize -5<CR>')
 vim.keymap.set('n', '<C-Up>', '<Cmd>resize +2<CR>')
 vim.keymap.set('n', '<C-Down>', '<Cmd>resize -2<CR>')
 
+-- Buffers
+vim.keymap.set('n', '<C-,>', '<cmd>BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<C-.>', '<cmd>BufferLineCycleNext<CR>')
+vim.keymap.set('n', '<A-,>', '<cmd>BufferLineMovePrev<CR>')
+vim.keymap.set('n', '<A-.>', '<cmd>BufferLineMoveNext<CR>')
+--vim.keymap.set('n', '<C-q>', '<cmd>bdelete<CR>')
+vim.keymap.set('n', '<C-p>', '<cmd>BufferLinePick<CR>')
 -- vim: ts=2 sts=2 sw=2 et
