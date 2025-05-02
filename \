@@ -63,6 +63,8 @@ return {
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>t', group = 'Terminal' },
+        { '<leader>th', '<cmd>split | terminal | startinsert<CR>', desc = 'Horizontal Terminal' },
+        { '<leader>tv', '<cmd>vsplit | terminal | startinsert<CR>', desc = 'Vertical Terminal' },
       },
     },
   },

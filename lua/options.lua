@@ -7,7 +7,7 @@
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -59,11 +59,24 @@ vim.opt.inccommand = 'split'
 vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 5
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
 vim.opt.confirm = true
+
+-- Set the display width of a tab character to 4 spaces
+vim.opt.tabstop = 4 -- Display width of a tab character
+vim.opt.softtabstop = 0 -- When 0, feature is disabled
+vim.opt.shiftwidth = 4 -- Number of spaces for each step of autoindent
+
+-- Ensure tabs aren't expanded to spaces
+vim.opt.expandtab = false -- Don't convert tabs to spaces
+
+-- Optional: Make << and >> commands use shiftwidth
+vim.opt.shiftround = true -- Round indent to multiple of shiftwidth
+
+vim.opt.termguicolors = true
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -6,7 +6,7 @@
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+--vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -50,5 +50,29 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+--Terminals
+vim.keymap.set('n', '<leader>th', '<cmd>ToggleTerm size=26 dir=. direction=horizontal<CR>', { desc = 'Horizontal Terminal' })
+vim.keymap.set('n', '<leader>tv', '<cmd>ToggleTerm size=80 dir=. direction=vertical<CR>', { desc = 'Vertical Terminal' })
+vim.keymap.set('n', '<leader>tf', '<cmd>ToggleTerm size=80 dir=. direction=float<CR>', { desc = 'Floating Terminal' })
+local Terminal  = require('toggleterm.terminal').Terminal
+local lazygit = Terminal:new({ direction='float', cmd = "lazygit", hidden = true })
+
+function _lazygit_toggle()
+  lazygit:toggle()
+end
+vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", {desc = 'Lazygit Terminal', noremap = true, silent = true})
+
+--New Splits
+vim.keymap.set("n", "<leader>\\", "<cmd>:vsplit<CR>", { desc = 'Vertical Split' })
+vim.keymap.set("n", "<leader>|", "<cmd>:split<CR>", { desc = 'Horizontal Split' })
+
+-- Resize vertical split
+vim.keymap.set('n', '<C-Right>', '<Cmd>vertical resize +5<CR>')
+vim.keymap.set('n', '<C-Left>', '<Cmd>vertical resize -5<CR>')
+
+-- Resize horizontal split
+vim.keymap.set('n', '<C-Up>', '<Cmd>resize +2<CR>')
+vim.keymap.set('n', '<C-Down>', '<Cmd>resize -2<CR>')
 
 -- vim: ts=2 sts=2 sw=2 et
