@@ -82,7 +82,9 @@ return {
         },
       },
 
-      snippets = { preset = 'luasnip' },
+      snippets = {
+        preset = 'luasnip',
+      },
 
       -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
       -- which automatically downloads a prebuilt binary when enabled.
@@ -94,7 +96,9 @@ return {
       fuzzy = { implementation = 'lua' },
 
       -- Shows a signature help window while you type arguments for a function
-      signature = { enabled = true },
+      signature = {
+        enabled = true,
+      },
     },
   },
 }
