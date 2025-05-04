@@ -16,6 +16,14 @@ return {
         additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
+      rainbow = {
+        enable = true,
+        -- disable = { "jsx", "cpp" }, -- list of languages you want to disable the plugin for
+        extended_mode = true, -- Also highlight non-bracket delimiters like html tags
+        max_file_lines = nil, -- Do not enable for files with more than n lines
+        -- colors = {}, -- table of hex strings
+        -- termcolors = {} -- table of colour name strings
+      },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

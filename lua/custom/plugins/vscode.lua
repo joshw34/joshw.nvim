@@ -12,7 +12,7 @@ return {
       -- style = 'light',
       
       -- Enable transparent background
-      transparent = false,
+      transparent = false;
       
       -- Enable italic comments
       italic_comments = true,
@@ -30,6 +30,9 @@ return {
       -- color_overrides = {
       --   vscLineNumber = '#FFFFFF',
       -- },
+      group_overrides = {
+        ['@keyword.directive'] = { fg='#C586C0', bg='NONE' },
+      }
     })
     
     -- Set the colorscheme
