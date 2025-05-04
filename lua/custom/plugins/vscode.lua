@@ -36,9 +36,9 @@ return {
     })
     
     -- Set the colorscheme
-    vim.cmd.colorscheme "vscode"
+--    vim.cmd.colorscheme "vscode"
     
     -- Set background (dark or light)
-    vim.o.background = 'dark'
+  --  vim.o.background = 'dark'
   end,
 }
