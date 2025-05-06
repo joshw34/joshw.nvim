@@ -68,7 +68,7 @@ vim.opt.confirm = true
 
 -- Set the display width of a tab character to 4 spaces
 vim.opt.tabstop = 4 -- Display width of a tab character
-vim.opt.softtabstop = 0 -- When 0, feature is disabled
+vim.opt.softtabstop = 4 -- When 0, feature is disabled
 vim.opt.shiftwidth = 4 -- Number of spaces for each step of autoindent
 
 -- Ensure tabs aren't expanded to spaces
