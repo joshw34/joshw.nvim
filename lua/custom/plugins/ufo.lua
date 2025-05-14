@@ -1,21 +1,10 @@
 return {
   "kevinhwang91/nvim-ufo",
   dependencies = { "kevinhwang91/promise-async" },
-  event = "BufReadPost",
+  ft = { "c", "cpp" },
   opts = {
-    -- More specific provider_selector that explicitly disables UFO for special buffers
     provider_selector = function(bufnr, filetype, buftype)
-      -- Return empty string to completely disable UFO for these buffer types
-      if buftype == 'terminal' or buftype == 'nofile' or buftype == 'quickfix' or buftype == 'prompt' then
-        return ''
-      end
-      
-      -- For toggleterm specifically
-      if filetype == 'toggleterm' then
-        return ''
-      end
-      
-      -- For regular files, use normal providers
+      -- For C/C++ files, use LSP and treesitter providers
       return {'lsp', 'treesitter'}
     end,
   },
@@ -50,15 +39,12 @@ return {
     end
     -- Add keymaps
     vim.keymap.set('n', 'zR', function()
-      -- Safe open all folds with error handling
       pcall(function() require('ufo').openAllFolds() end)
     end, { desc = "Open all folds" })
     vim.keymap.set('n', 'zM', function()
-      -- Safe close all folds with error handling
       pcall(function() require('ufo').closeAllFolds() end)
     end, { desc = "Close all folds" })
     vim.keymap.set('n', 'zK', function()
-      -- Safe peek fold with error handling
       pcall(function()
         local winid = require('ufo').peekFoldedLinesUnderCursor()
         if not winid then
