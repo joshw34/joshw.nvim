@@ -47,7 +47,7 @@ return {
     
     -- Close fold kinds define when a range with this kind will be folded
     close_fold_kinds_for_ft = {
-      default = {'imports', 'comment'},
+      default = {},
     },
     
     -- Add fold text configuration for better display
@@ -82,10 +82,11 @@ return {
   },
   
   init = function()
-    vim.o.foldcolumn = '1'
-    vim.o.foldlevel = 99
-    vim.o.foldlevelstart = 99
-    vim.o.foldenable = true
+    vim.o.foldcolumn = '1'     -- Show fold column
+    vim.o.foldlevel = 99       -- Don't fold anything by default
+    vim.o.foldlevelstart = 99  -- Start with everything unfolded
+    vim.o.foldenable = true    -- Enable folding
+    -- Let UFO handle foldmethod
   end,
   
   config = function(_, opts)
@@ -114,34 +115,18 @@ return {
       end
     end
     
-    -- Add keymaps with better error handling
+    -- Add keymaps
     vim.keymap.set('n', 'zR', function()
-      local success, err = pcall(function() 
-        require('ufo').openAllFolds() 
-      end)
-      if not success then
-        vim.notify('UFO: Failed to open all folds: ' .. err, vim.log.levels.WARN)
-      end
+      require('ufo').openAllFolds()
     end, { desc = "Open all folds" })
     
     vim.keymap.set('n', 'zM', function()
-      local success, err = pcall(function() 
-        require('ufo').closeAllFolds() 
-      end)
-      if not success then
-        vim.notify('UFO: Failed to close all folds: ' .. err, vim.log.levels.WARN)
-      end
+      require('ufo').closeAllFolds()
     end, { desc = "Close all folds" })
     
     vim.keymap.set('n', 'zK', function()
-      local success, err = pcall(function()
-        local winid = require('ufo').peekFoldedLinesUnderCursor()
-        if not winid then
-          vim.lsp.buf.hover()
-        end
-      end)
-      if not success then
-        vim.notify('UFO: Failed to preview fold: ' .. err, vim.log.levels.WARN)
+      local winid = require('ufo').peekFoldedLinesUnderCursor()
+      if not winid then
         vim.lsp.buf.hover()
       end
     end, { desc = "Preview fold" })
